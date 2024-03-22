@@ -1,0 +1,31 @@
+@startuml
+
+object AccessController
+
+object FundLockExecutable
+object FundLockGateway
+
+object FundLock
+object Ledger
+object Registry
+object TokenValidator
+object TokenManager
+
+FundLockExecutable --> AccessController
+FundLockGateway --> AccessController
+FundLock --> AccessController
+Ledger --> AccessController
+Registry --> AccessController
+TokenValidator --> AccessController
+TokenManager --> AccessController
+
+TokenManager <--> Registry
+Registry --> TokenValidator
+Registry --> FundLock
+
+FundLock --> FundLockExecutable
+
+Ledger --> Registry
+Ledger --> TokenManager
+
+@enduml
